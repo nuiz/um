@@ -1,6 +1,6 @@
 {extends file="template.php"}
 {block name=body}
-<h3>นายจ้าง</h3>
+<h3>แม่บ้าน</h3>
 <div>
 	<form>
 		<div class="row">

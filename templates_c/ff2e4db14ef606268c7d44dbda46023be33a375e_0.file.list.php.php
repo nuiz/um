@@ -1,46 +1,46 @@
-<?php /* Smarty version 3.1.27, created on 2015-08-11 05:35:55
-         compiled from "views\employer\list.php" */ ?>
+<?php /* Smarty version 3.1.27, created on 2015-08-11 05:46:10
+         compiled from "views\user\list.php" */ ?>
 <?php
-/*%%SmartyHeaderCode:1194055c96d9b9c5775_86047133%%*/
+/*%%SmartyHeaderCode:1770955c970021ecd94_88741855%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '7ffbdfc30bd9ed6be3afcb78985a4533ee11f6f7' => 
+    'ff2e4db14ef606268c7d44dbda46023be33a375e' => 
     array (
-      0 => 'views\\employer\\list.php',
-      1 => 1439149148,
+      0 => 'views\\user\\list.php',
+      1 => 1439264557,
       2 => 'file',
     ),
     'eee29d89c2b5b7f76479515928af351624f48a5a' => 
     array (
       0 => 'views\\template.php',
-      1 => 1439245391,
+      1 => 1439264768,
       2 => 'file',
     ),
-    '8379b90e67a507d914909ab051a43f17599c563d' => 
+    '9564828693568d9ef0f783866306b17c77918006' => 
     array (
-      0 => '8379b90e67a507d914909ab051a43f17599c563d',
+      0 => '9564828693568d9ef0f783866306b17c77918006',
       1 => 0,
       2 => 'string',
     ),
   ),
-  'nocache_hash' => '1194055c96d9b9c5775_86047133',
+  'nocache_hash' => '1770955c970021ecd94_88741855',
   'variables' => 
   array (
     'userlogin' => 0,
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_55c96d9bb1ab32_02507936',
+  'unifunc' => 'content_55c97002332949_53096571',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_55c96d9bb1ab32_02507936')) {
-function content_55c96d9bb1ab32_02507936 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_55c97002332949_53096571')) {
+function content_55c97002332949_53096571 ($_smarty_tpl) {
 if (!is_callable('smarty_function_siteUrl')) require_once 'vendor/slim/views/SmartyPlugins\\function.siteUrl.php';
 if (!is_callable('smarty_function_currentUrl')) require_once 'vendor/slim/views/SmartyPlugins\\function.currentUrl.php';
 
-$_smarty_tpl->properties['nocache_hash'] = '1194055c96d9b9c5775_86047133';
+$_smarty_tpl->properties['nocache_hash'] = '1770955c970021ecd94_88741855';
 ?>
 <!DOCTYPE html>
 <html>
@@ -141,46 +141,106 @@ if ($_tmp15 == $_tmp16) {?> class="active" <?php }?>><a href="<?php echo smarty_
 </nav>
 <div class="container">
 	<?php
-$_smarty_tpl->properties['nocache_hash'] = '1194055c96d9b9c5775_86047133';
+$_smarty_tpl->properties['nocache_hash'] = '1770955c970021ecd94_88741855';
 ?>
 
-<h3>นายจ้าง</h3>
+<h3>พนักงาน</h3>
 <div>
-	<form>
-		<div class="row">
-  			<div class="col-md-3 form-group">
-  			    <label>ชื่อ-สกุล</label>
-    			<input type="text" class="form-control">
-  			</div>
-		</div>
-	</form>
-</div>
-<div>
+	<div>
+		<a href="<?php echo smarty_function_siteUrl(array('url'=>"/user/add"),$_smarty_tpl);?>
+" class="btn btn-info">
+			<i class="glyphicon glyphicon-plus-sign"></i> เพิ่ม
+		</a>
+	<div>
 	<table class="table">
 		<thead>
 			<tr>
 				<th>#</th>
+				<th>บัญชีผู้ใช้</th>
 				<th>ชื่อ-สกุล</th>
-				<th>พนักงาน</th>
+				<th>เบอร์โทรศัพท์</th>
+				<th>สาขา</th>
 				<th></th>
 			</tr>
 		</thead>
 		<tbody>
+			<?php
+$_from = $_smarty_tpl->tpl_vars['items']->value;
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
+}
+$_smarty_tpl->tpl_vars['item'] = new Smarty_Variable;
+$_smarty_tpl->tpl_vars['item']->_loop = false;
+$_smarty_tpl->tpl_vars['key'] = new Smarty_Variable;
+foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_vars['item']->value) {
+$_smarty_tpl->tpl_vars['item']->_loop = true;
+$foreach_item_Sav = $_smarty_tpl->tpl_vars['item'];
+?>
 			<tr>
-				<td>1</td>
-				<td><a href="">ทดสอบ ทดสอบ</a></td>
-				<td>สมศักดิ์ ปัดเป่า</td>
+				<td><?php echo $_smarty_tpl->tpl_vars['item']->value->id;?>
+</td>
+				<td><?php echo $_smarty_tpl->tpl_vars['item']->value->username;?>
+</td>
+				<td><?php echo $_smarty_tpl->tpl_vars['item']->value->first_name;?>
+ <?php echo $_smarty_tpl->tpl_vars['item']->value->last_name;?>
+</td>
+				<td><?php echo $_smarty_tpl->tpl_vars['item']->value->tel_number;?>
+</td>
+				<td><?php echo $_smarty_tpl->tpl_vars['item']->value->branch;?>
+</td>
 				<td>
-					<a href=""><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-					<a href=""><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+					<a href="<?php echo smarty_function_siteUrl(array('url'=>"/user/edit/".((string)$_smarty_tpl->tpl_vars['item']->value->id)),$_smarty_tpl);?>
+"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+					<a class="confirm-beforeclick" href="<?php echo smarty_function_siteUrl(array('url'=>"/user/delete/".((string)$_smarty_tpl->tpl_vars['item']->value->id)),$_smarty_tpl);?>
+"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 				</td>
 			</tr>
+			<?php
+$_smarty_tpl->tpl_vars['item'] = $foreach_item_Sav;
+}
+?>
 		</tbody>
 	</table>
+	<ul class="pagination">
+    <?php if ($_smarty_tpl->tpl_vars['page']->value > 1) {?>
+    <li>
+      <a href="<?php echo smarty_function_siteUrl(array('url'=>"/user?page=".((string)($_smarty_tpl->tpl_vars['page']->value-1))),$_smarty_tpl);?>
+" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <?php }?>
+    <?php $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable;$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? $_smarty_tpl->tpl_vars['maxPage']->value+1 - (1) : 1-($_smarty_tpl->tpl_vars['maxPage']->value)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
+if ($_smarty_tpl->tpl_vars['i']->total > 0) {
+for ($_smarty_tpl->tpl_vars['i']->value = 1, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
+$_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration == $_smarty_tpl->tpl_vars['i']->total;?>
+    <li><a href="<?php echo smarty_function_siteUrl(array('url'=>"/user?page=".((string)$_smarty_tpl->tpl_vars['i']->value)),$_smarty_tpl);?>
+"><?php echo $_smarty_tpl->tpl_vars['i']->value;?>
+</a></li>
+    <?php }} ?>
+    <?php if ($_smarty_tpl->tpl_vars['maxPage']->value > $_smarty_tpl->tpl_vars['page']->value) {?>
+    <li>
+      <a href="<?php echo smarty_function_siteUrl(array('url'=>"/user?page=".((string)($_smarty_tpl->tpl_vars['page']->value+1))),$_smarty_tpl);?>
+" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+    <?php }?>
+  </ul>
 </div>
 
 </div>
 <div class="footer"></div>
+<?php echo '<script'; ?>
+>
+$('.confirm-beforeclick').click(function(e){
+	if(!window.confirm('คุณแน่ใจหรือไม่?')){
+		e.preventDefault();
+		return false;
+	}
+});
+<?php echo '</script'; ?>
+>
 </body>
 </html><?php }
 }

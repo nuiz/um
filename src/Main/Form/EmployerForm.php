@@ -3,6 +3,12 @@
 namespace Main\Form;
 
 class EmployerForm extends Form {
+	public $attr = [
+		'first_name'=> '',
+		'last_name'=> '',
+		'visa_expiry'=> ''
+	];
+
 	public function validate(){
 		$this->errors = [];
 		$this->error = false;
