@@ -1,11 +1,17 @@
 <?php
 namespace Main\Controller;
 
-class IndexController extends Controller
+use Main\Auth\Auth;
+
+class IndexController extends BaseController
 {
     public function index()
     {
-        $this->slim->redirect($this->slim->request()->getRootUri().'/employer');
-        $this->slim->render("template.php");
+      $auth = new Auth();
+      $user = $auth->getUserSession();
+      if($user->level == 1){
+  		    $this->slim->redirect($this->slim->request()->getRootUri().'/user');
+      }
+      $this->slim->redirect($this->slim->request()->getRootUri().'/employer');
     }
 }

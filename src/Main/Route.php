@@ -26,8 +26,17 @@ class Route {
 		$this->slim->get('/employer', 'Main\Controller\EmployerController:index');
 		$this->slim->get('/employer/add', 'Main\Controller\EmployerController:add');
 		$this->slim->post('/employer/add', 'Main\Controller\EmployerController:post_add');
+		$this->slim->get('/employer/edit/:id', 'Main\Controller\EmployerController:edit');
+		$this->slim->post('/employer/edit/:id', 'Main\Controller\EmployerController:post_edit');
+		$this->slim->get('/employer/delete/:id', 'Main\Controller\EmployerController:delete');
 
 		$this->slim->get('/employee', 'Main\Controller\EmployeeController:index');
+		$this->slim->get('/employee/add', 'Main\Controller\EmployeeController:add');
+		$this->slim->post('/employee/add', 'Main\Controller\EmployeeController:post_add');
+		$this->slim->get('/employee/edit/:id', 'Main\Controller\EmployeeController:edit');
+		$this->slim->post('/employee/edit/:id', 'Main\Controller\EmployeeController:post_edit');
+		$this->slim->get('/employee/delete/:id', 'Main\Controller\EmployeeController:delete');
+
 		$this->slim->get('/blacklist', 'Main\Controller\EmployerController:index');
 		$this->slim->get('/visa', 'Main\Controller\EmployeeController:index');
 	}

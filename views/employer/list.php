@@ -23,6 +23,7 @@
 			<tr>
 				<th>#</th>
 				<th>ชื่อ-สกุล</th>
+				<th>โทรศัพท์</th>
 				<th>พนักงาน</th>
 				<th></th>
 			</tr>
@@ -32,10 +33,11 @@
 			<tr>
 				<td>1</td>
 				<td><a href="">{$item->first_name} {$item->last_name}</a></td>
+				<td>{$item->tel_number}</td>
 				<td>{$item->user->username}</td>
 				<td>
-					<a href=""><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-					<a href=""><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+					<a href="{siteUrl url="/employer/edit/{$item->id}"}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+					<a class="confirm-beforeclick" href="{siteUrl url="/employer/delete/{$item->id}"}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 				</td>
 			</tr>
 			{/foreach}

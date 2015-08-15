@@ -12,6 +12,10 @@
 			<label>นามสกุล</label>
 			<input type="text" class="form-control" name="last_name" value="{$form->attr.last_name}" placeholder="">
 		</div>
+		<div class="form-group">
+			<label>เบอร์โทรศัพท์</label>
+			<input type="text" class="form-control" name="tel_number" value="{$form->attr.tel_number}" placeholder="">
+		</div>
 		<button type="submit" class="btn btn-primary">ตกลง</button>
 		<a href="{siteUrl url="/employer"}" class="btn btn-warning">กลับไปยังรายการ</a>
 	</form>

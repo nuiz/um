@@ -7,7 +7,8 @@ class EmployerForm extends Form
 {
   public $attr = [
     'first_name'=> '',
-    'last_name'=> ''
+    'last_name'=> '',
+    'tel_number'=> ''
   ];
 
   public function validate()
@@ -39,6 +40,7 @@ class EmployerForm extends Form
     }
     $item->first_name = $this->getAttr('first_name', '');
 		$item->last_name = $this->getAttr('last_name', '');
+		$item->last_name = $this->getAttr('tel_number', '');
     $item->update_time = date("Y-m-d H:i:s");
     return R::store($item);
   }

@@ -42,4 +42,30 @@ class EmployerController extends BaseController {
 			$this->slim->render("employer/add.php", ['form'=> $form]);
 		}
 	}
+
+	public function edit($id){
+		$item = R::findOne('employer', 'id=?', [$id]);
+		$this->slim->render("employer/add.php", ['form'=> new EmployerForm($item->export())]);
+	}
+
+	public function post_edit($id){
+		$attr = $this->slim->request->post();
+		$attr['id'] = $id;
+		$auth = new Auth();
+		$form = new EmployerForm($attr);
+		$userlogin = $auth->getUserSession();
+		if($form->validate()){
+			$form->save($userlogin->id);
+			$this->slim->redirect($this->slim->request()->getRootUri().'/employer');
+		}
+		else {
+			$this->slim->render("employer/add.php", ['form'=> $form]);
+		}
+	}
+
+	public function delete($id){
+		$item = R::findOne('employer', 'id=?', [$id]);
+		R::trash($item);
+		$this->slim->redirect($this->slim->request()->getRootUri().'/employer');
+	}
 }

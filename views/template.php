@@ -6,10 +6,13 @@
 
 	<link rel="stylesheet" type="text/css" href="{siteUrl url='/asset/bootstrap/css/bootstrap.min.css'}">
 	<link rel="stylesheet" type="text/css" href="{siteUrl url='/asset/bootstrap/css/bootstrap-theme.min.css'}">
+	<link rel="stylesheet" type="text/css" href="{siteUrl url='/asset/datepicker/css/datepicker.css'}">
 	<link rel="stylesheet" type="text/css" href="{siteUrl url='/asset/css/style.css'}">
 
 	<script src="{siteUrl url='/asset/jquery/jquery-1.11.3.min.js'}"></script>
 	<script src="{siteUrl url='/asset/bootstrap/js/bootstrap.min.js'}"></script>
+	<script src="{siteUrl url='/asset/datepicker/js/bootstrap-datepicker.js'}"></script>
+	<script src="{siteUrl url=''}"></script>
 </head>
 <body>
 <nav class="navbar navbar-default">

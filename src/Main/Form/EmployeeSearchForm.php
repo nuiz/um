@@ -3,7 +3,7 @@ namespace Main\Form;
 
 use RedBeanPHP\R;
 
-class EmployerSearchForm extends Form
+class EmployeeSearchForm extends Form
 {
     public $attr = [
       "keyword"=> "",
@@ -29,7 +29,7 @@ class EmployerSearchForm extends Form
         $bindParam["keyword"] = '%'.$keyword.'%';
       }
 
-      $this->count = R::count('employer', $query, $bindParam);
+      $this->count = R::count('employee', $query, $bindParam);
 
       $page = floor($this->count/$perPage);
       $this->maxPage = $page + ($this->count%$perPage == 0 ? 0: 1);
@@ -38,7 +38,7 @@ class EmployerSearchForm extends Form
       $bindParam["start"] = $start;
       $bindParam["perPage"] = $perPage;
 
-  		$this->items = R::find('employer', $query, $bindParam);
+  		$this->items = R::find('employee', $query, $bindParam);
       $this->injectsUser($this->items);
     }
 
