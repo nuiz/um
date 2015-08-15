@@ -22,8 +22,11 @@ class Route {
 		$this->slim->get('/user/edit/:id', 'Main\Controller\UserController:edit');
 		$this->slim->post('/user/edit/:id', 'Main\Controller\UserController:post_edit');
 		$this->slim->get('/user/delete/:id', 'Main\Controller\UserController:delete');
-		
+
 		$this->slim->get('/employer', 'Main\Controller\EmployerController:index');
+		$this->slim->get('/employer/add', 'Main\Controller\EmployerController:add');
+		$this->slim->post('/employer/add', 'Main\Controller\EmployerController:post_add');
+
 		$this->slim->get('/employee', 'Main\Controller\EmployeeController:index');
 		$this->slim->get('/blacklist', 'Main\Controller\EmployerController:index');
 		$this->slim->get('/visa', 'Main\Controller\EmployeeController:index');

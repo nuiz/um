@@ -1,15 +1,15 @@
-<?php /* Smarty version 3.1.27, created on 2015-08-15 22:28:08
-         compiled from "views\employer\list.php" */ ?>
+<?php /* Smarty version 3.1.27, created on 2015-08-15 22:27:59
+         compiled from "views\employer\add.php" */ ?>
 <?php
-/*%%SmartyHeaderCode:2058755cfa0d84a5070_77144988%%*/
+/*%%SmartyHeaderCode:278955cfa0cf610087_80086069%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '7ffbdfc30bd9ed6be3afcb78985a4533ee11f6f7' => 
+    '2069db0745388a906dba63619cfc3aadb5f9e7ef' => 
     array (
-      0 => 'views\\employer\\list.php',
-      1 => 1439670386,
+      0 => 'views\\employer\\add.php',
+      1 => 1439670464,
       2 => 'file',
     ),
     'eee29d89c2b5b7f76479515928af351624f48a5a' => 
@@ -18,29 +18,29 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       1 => 1439264768,
       2 => 'file',
     ),
-    '16ce879c25637c0dd4703a7747fe68ec3f701c8f' => 
+    'bb9b0ceed762b552881733f9d5082ff91cceae8c' => 
     array (
-      0 => '16ce879c25637c0dd4703a7747fe68ec3f701c8f',
+      0 => 'bb9b0ceed762b552881733f9d5082ff91cceae8c',
       1 => 0,
       2 => 'string',
     ),
   ),
-  'nocache_hash' => '2058755cfa0d84a5070_77144988',
+  'nocache_hash' => '278955cfa0cf610087_80086069',
   'variables' => 
   array (
     'userlogin' => 0,
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_55cfa0d85ca0e1_33869141',
+  'unifunc' => 'content_55cfa0cf70ef64_10292038',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_55cfa0d85ca0e1_33869141')) {
-function content_55cfa0d85ca0e1_33869141 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_55cfa0cf70ef64_10292038')) {
+function content_55cfa0cf70ef64_10292038 ($_smarty_tpl) {
 if (!is_callable('smarty_function_siteUrl')) require_once 'vendor/slim/views/SmartyPlugins\\function.siteUrl.php';
 if (!is_callable('smarty_function_currentUrl')) require_once 'vendor/slim/views/SmartyPlugins\\function.currentUrl.php';
 
-$_smarty_tpl->properties['nocache_hash'] = '2058755cfa0d84a5070_77144988';
+$_smarty_tpl->properties['nocache_hash'] = '278955cfa0cf610087_80086069';
 ?>
 <!DOCTYPE html>
 <html>
@@ -141,96 +141,28 @@ if ($_tmp15 == $_tmp16) {?> class="active" <?php }?>><a href="<?php echo smarty_
 </nav>
 <div class="container">
 	<?php
-$_smarty_tpl->properties['nocache_hash'] = '2058755cfa0d84a5070_77144988';
+$_smarty_tpl->properties['nocache_hash'] = '278955cfa0cf610087_80086069';
 ?>
 
-<h3>นายจ้าง</h3>
-<div>
-	<form>
-		<div class="row">
-  			<div class="col-md-3 form-group">
-  			    <label>ชื่อ-สกุล</label>
-    				<input type="text" name="keyword" value="<?php echo $_smarty_tpl->tpl_vars['searchForm']->value->attr['keyword'];?>
-">
-    				<input type="hidden" name="page" value="<?php echo $_smarty_tpl->tpl_vars['searchForm']->value->attr['page'];?>
-">
-  			</div>
+<h4><?php if (isset($_smarty_tpl->tpl_vars['form']->value->attr['id'])) {?>แก้ไขนายจ้าง<?php } else { ?>เพิ่มนายจ้าง<?php }?></h4>
+<div class="form-wrap">
+	<small><?php echo $_smarty_tpl->tpl_vars['form']->value->error;?>
+</small>
+	<form method="post">
+		<div class="form-group">
+			<label>ชื่อ</label>
+			<input type="text" class="form-control" name="first_name" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->attr['first_name'];?>
+" placeholder="">
 		</div>
+		<div class="form-group">
+			<label>นามสกุล</label>
+			<input type="text" class="form-control" name="last_name" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->attr['last_name'];?>
+" placeholder="">
+		</div>
+		<button type="submit" class="btn btn-primary">ตกลง</button>
+		<a href="<?php echo smarty_function_siteUrl(array('url'=>"/employer"),$_smarty_tpl);?>
+" class="btn btn-warning">กลับไปยังรายการ</a>
 	</form>
-</div>
-<div>
-	<div>
-		<a href="<?php echo smarty_function_siteUrl(array('url'=>"/employer/add"),$_smarty_tpl);?>
-" class="btn btn-info">
-			<i class="glyphicon glyphicon-plus-sign"></i> เพิ่ม
-		</a>
-	<div>
-	<table class="table">
-		<thead>
-			<tr>
-				<th>#</th>
-				<th>ชื่อ-สกุล</th>
-				<th>พนักงาน</th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			<?php
-$_from = $_smarty_tpl->tpl_vars['items']->value;
-if (!is_array($_from) && !is_object($_from)) {
-settype($_from, 'array');
-}
-$_smarty_tpl->tpl_vars['item'] = new Smarty_Variable;
-$_smarty_tpl->tpl_vars['item']->_loop = false;
-$_smarty_tpl->tpl_vars['key'] = new Smarty_Variable;
-foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_vars['item']->value) {
-$_smarty_tpl->tpl_vars['item']->_loop = true;
-$foreach_item_Sav = $_smarty_tpl->tpl_vars['item'];
-?>
-			<tr>
-				<td>1</td>
-				<td><a href=""><?php echo $_smarty_tpl->tpl_vars['item']->value->first_name;?>
- <?php echo $_smarty_tpl->tpl_vars['item']->value->last_name;?>
-</a></td>
-				<td><?php echo $_smarty_tpl->tpl_vars['item']->value->user->username;?>
-</td>
-				<td>
-					<a href=""><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-					<a href=""><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-				</td>
-			</tr>
-			<?php
-$_smarty_tpl->tpl_vars['item'] = $foreach_item_Sav;
-}
-?>
-		</tbody>
-	</table>
-	<ul class="pagination">
-    <?php if ($_smarty_tpl->tpl_vars['page']->value > 1) {?>
-    <li>
-      <a href="<?php echo smarty_function_siteUrl(array('url'=>"/employer?page=".((string)($_smarty_tpl->tpl_vars['page']->value-1))),$_smarty_tpl);?>
-" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <?php }?>
-    <?php $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable;$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? $_smarty_tpl->tpl_vars['maxPage']->value+1 - (1) : 1-($_smarty_tpl->tpl_vars['maxPage']->value)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
-if ($_smarty_tpl->tpl_vars['i']->total > 0) {
-for ($_smarty_tpl->tpl_vars['i']->value = 1, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
-$_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration == $_smarty_tpl->tpl_vars['i']->total;?>
-    <li><a href="<?php echo smarty_function_siteUrl(array('url'=>"/employer?page=".((string)$_smarty_tpl->tpl_vars['i']->value)),$_smarty_tpl);?>
-"><?php echo $_smarty_tpl->tpl_vars['i']->value;?>
-</a></li>
-    <?php }} ?>
-    <?php if ($_smarty_tpl->tpl_vars['maxPage']->value > $_smarty_tpl->tpl_vars['page']->value) {?>
-    <li>
-      <a href="<?php echo smarty_function_siteUrl(array('url'=>"/employer?page=".((string)($_smarty_tpl->tpl_vars['page']->value+1))),$_smarty_tpl);?>
-" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-    <?php }?>
-  </ul>
 </div>
 
 </div>
