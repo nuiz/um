@@ -32,7 +32,7 @@
 			{foreach key=key item=item from=$items}
 			<tr>
 				<td>{$item->id}</td>
-				<td><a href="">{$item->first_name} {$item->last_name}</a></td>
+				<td><a href="{siteUrl url="/employer/{$item->id}"}">{$item->first_name} {$item->last_name}</a></td>
 				<td>{$item->tel_number}</td>
 				<td>{$item->user->username}</td>
 				<td>

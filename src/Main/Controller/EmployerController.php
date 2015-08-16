@@ -71,4 +71,10 @@ class EmployerController extends BaseController {
 		R::trash($item);
 		$this->slim->redirect($this->slim->request()->getRootUri().'/employer');
 	}
+
+	public function get($id)
+	{
+		$item = R::findOne('employer', 'id=?', [$id]);
+		$this->slim->render("employer/get.php");
+	}
 }

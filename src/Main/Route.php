@@ -24,6 +24,7 @@ class Route {
 		$this->slim->get('/user/delete/:id', 'Main\Controller\UserController:delete');
 
 		$this->slim->get('/employer', 'Main\Controller\EmployerController:index');
+		$this->slim->get('/employer/:id', 'Main\Controller\EmployerController:get')->conditions(['id'=> '\d+']);
 		$this->slim->get('/employer/add', 'Main\Controller\EmployerController:add');
 		$this->slim->post('/employer/add', 'Main\Controller\EmployerController:post_add');
 		$this->slim->get('/employer/edit/:id', 'Main\Controller\EmployerController:edit');
