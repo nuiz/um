@@ -77,7 +77,6 @@ class VisaSearchForm extends Form
         $query .= "({$queryReportExpire})";
       }
 
-      var_dump($this->attr);
       $this->count = R::count('employee', $query, $bindParam);
 
       $page = floor($this->count/$perPage);
