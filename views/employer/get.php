@@ -3,25 +3,29 @@
 <div class="">
   <div class="section top-section">
     <div class="row">
-      <div class="col-md-5"><strong>ชื่อ:</strong> </div>
-      <div class="col-md-5"><strong>หมายเลขบัตรประชาชน: </strong></div>
-      <div class="col-md-2"><strong>รหัสลูกค้า</strong></div>
+      <div class="col-md-5"><strong>ชื่อ: {$item->first_name} {$item->last_name}</strong> </div>
+      <div class="col-md-5"><strong>หมายเลขบัตรประชาชน: {$item->id_card}</strong></div>
+      <div class="col-md-2"><strong>รหัสลูกค้า {$item->customer_id}</strong></div>
     </div>
     <div class="row">
-      <div class="col-md-6">222/195 บลาๆๆๆๆ ๆ ๆ ๆ ๆ ๆ ๆ  บลาๆๆๆๆ ๆ ๆ ๆ ๆ ๆ ๆ </div>
-      <div class="col-md-6">เบอร์โทร 096-6666666</div>
+      <div class="col-md-6">{$item->address}</div>
+      <div class="col-md-6">เบอร์โทร {$item->tel_number}</div>
     </div>
     <div class="row">
-      <div class="col-md-1 underline"><strong>วันที่แจ้ง</strong></div>
-      <div class="col-md-9 underline"><strong>รายละเอียดงาน</strong></div>
-      <div class="col-md-2">ครั้งที่ 2 : 27 พ.ค. 58</div>
+      <div class="col-md-2 underline"><strong>วันที่แจ้ง</strong></div>
+      <div class="col-md-10 underline"><strong>รายละเอียดงาน</strong></div>
     </div>
     <div class="row">
-      <div class="col-md-1">27 พ.ค. 58</div>
-      <div class="col-md-9">ต้องการแม่บ้าน 2 คน มีลูก 3 หมา 4 สามี 5 แต่เด็กโตแล้วไม่ต้องดูแล เงินเเดือน 9000 บาท/เดือน หยุด 4 วัน/เดือน โอที 300 บาท</div>
+      <div class="col-md-2">{$item->job_request_date}</div>
+      <div class="col-md-10">{$item->job_description}</div>
     </div>
   </div>
   <div class="section section-jobList">
+    <div class="pull-right">
+      <a href="{siteUrl url="/employer/{$item->id}/history/add"}" class="btn btn-info">
+        <i class="glyphicon glyphicon-plus-sign"></i> เพิ่ม
+      </a>
+    </div>
     <table class="table table-bordered table-jobList">
       <thead>
         <tr>

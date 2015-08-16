@@ -5,6 +5,7 @@ namespace Main\Controller;
 use RedBeanPHP\R;
 use Main\Form\EmployerForm;
 use Main\Form\EmployerSearchForm;
+use Main\Form\EmployerHistoryForm;
 use Main\Auth\Auth;
 
 class EmployerController extends BaseController {
@@ -75,6 +76,27 @@ class EmployerController extends BaseController {
 	public function get($id)
 	{
 		$item = R::findOne('employer', 'id=?', [$id]);
-		$this->slim->render("employer/get.php");
+		$item->histories = R::find('employer_history', 'employer_id=?', [$id]);
+		$this->slim->render("employer/get.php", ["item"=> $item]);
+	}
+
+	// history
+
+	public function add_history($employerId)
+	{
+		$this->slim->render("employer/history/add.php", ['form'=> new EmployerHistoryForm()]);
+	}
+
+	public function post_add_history($employerId)
+	{
+		$attr = $this->slim->request->post();
+		$form = new EmployerHistoryForm($attr);
+		if($form->validate()) {
+			$form->save($employerId);
+			$this->slim->redirect($this->slim->request()->getRootUri().'/employer/'.$employerId);
+		}
+		else {
+			$this->slim->render("employer/history/add.php", ['form'=> $form]);
+		}
 	}
 }

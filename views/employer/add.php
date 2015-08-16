@@ -2,7 +2,13 @@
 {block name=body}
 <h4>{if isset($form->attr.id)}แก้ไขนายจ้าง{else}เพิ่มนายจ้าง{/if}</h4>
 <div class="form-wrap">
-	<small>{$form->error}</small>
+  {if $form->error}
+  <div class="alert alert-danger" role="alert">
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    <span class="sr-only">Error:</span>
+    {$form->error}
+  </div>
+  {/if}
 	<form method="post">
 		<div class="form-group">
 			<label>ชื่อ</label>

@@ -27,6 +27,9 @@ class Route {
 		$this->slim->get('/employer/:id', 'Main\Controller\EmployerController:get')->conditions(['id'=> '\d+']);
 		$this->slim->get('/employer/add', 'Main\Controller\EmployerController:add');
 		$this->slim->post('/employer/add', 'Main\Controller\EmployerController:post_add');
+		$this->slim->get('/employer/:employer_id/history/add', 'Main\Controller\EmployerController:add_history')->conditions(['employer_id'=> '\d+']);
+		$this->slim->post('/employer/:employer_id/history/add', 'Main\Controller\EmployerController:post_add_history')->conditions(['employer_id'=> '\d+']);
+		$this->slim->get('/employer/:employer_id/history/delete/:id', 'Main\Controller\EmployerController:delete_history')->conditions(['employer_id'=> '\d+', 'id'=> '\d+']);
 		$this->slim->get('/employer/edit/:id', 'Main\Controller\EmployerController:edit');
 		$this->slim->post('/employer/edit/:id', 'Main\Controller\EmployerController:post_edit');
 		$this->slim->get('/employer/delete/:id', 'Main\Controller\EmployerController:delete');
