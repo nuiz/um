@@ -30,7 +30,7 @@
 		<tbody>
 			{foreach key=key item=item from=$items}
 			<tr>
-				<td>1</td>
+				<td>{$item->id}</td>
 				<td><a href="">{$item->first_name} {$item->last_name}</a></td>
 				<td>{$item->user->username}</td>
 				<td>

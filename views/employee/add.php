@@ -22,18 +22,23 @@
 		</div>
 		<div class="form-group">
 			<label>วันหมดอายุ passport</label>
-			<input type="text" class="form-control" name="passport_expiry" value="{$form->attr.passport_expiry}" placeholder="">
+			<input type="text" class="form-control datepicker" name="passport_expiry" value="{$form->attr.passport_expiry}" data-date-format="yyyy-mm-dd" placeholder="">
 		</div>
 		<div class="form-group">
 			<label>วันหมดอายุ visa</label>
-			<input type="text" class="form-control" name="visa_expiry" value="{$form->attr.visa_expiry}" placeholder="">
+			<input type="text" class="form-control datepicker" name="visa_expiry" value="{$form->attr.visa_expiry}" data-date-format="yyyy-mm-dd" placeholder="">
 		</div>
 		<div class="form-group">
 			<label>วันหมดอายุรายงานตัว</label>
-			<input type="text" class="form-control" name="report_expiry" value="{$form->attr.report_expiry}" placeholder="">
+			<input type="text" class="form-control datepicker" name="report_expiry" value="{$form->attr.report_expiry}" data-date-format="yyyy-mm-dd" placeholder="">
 		</div>
 		<button type="submit" class="btn btn-primary">ตกลง</button>
 		<a href="{siteUrl url="/employee"}" class="btn btn-warning">กลับไปยังรายการ</a>
 	</form>
 </div>
+<script>
+$(function(){
+	$('.datepicker').datepicker()
+});
+</script>
 {/block}

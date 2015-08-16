@@ -23,15 +23,24 @@ abstract class Form {
 	public function emptyAttr($name){
 		return empty($this->attr[$name]);
 	}
-	
+
 	protected function pushError($error){
 		$this->isValid = false;
 		$this->error = $error;
 		$this->errors[] = $error;
 	}
 
-	protected function _isDateFormat($date){
-		if (preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/",$date))
+	protected function _isDateFormat($input){
+		if (preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])$/",$input))
+	    {
+	    	return true;
+	    }else{
+	        return false;
+	    }
+	}
+
+	protected function _isDatetimeFormat($input){
+		if (preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/",$input))
 	    {
 	    	return true;
 	    }else{

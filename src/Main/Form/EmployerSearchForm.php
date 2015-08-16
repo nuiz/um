@@ -25,7 +25,7 @@ class EmployerSearchForm extends Form
       $keyword = $this->getAttr("keyword");
       $keyword = trim($keyword);
       if(!empty($keyword)) {
-        $query = "first_name LIKE :keyword OR last_name LIKE :keyword";
+        $query .= "first_name LIKE :keyword OR last_name LIKE :keyword";
         $bindParam["keyword"] = '%'.$keyword.'%';
       }
 

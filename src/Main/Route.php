@@ -38,6 +38,7 @@ class Route {
 		$this->slim->get('/employee/delete/:id', 'Main\Controller\EmployeeController:delete');
 
 		$this->slim->get('/blacklist', 'Main\Controller\EmployerController:index');
-		$this->slim->get('/visa', 'Main\Controller\EmployeeController:index');
+
+		$this->slim->get('/visa', 'Main\Controller\VisaController:index');
 	}
 }

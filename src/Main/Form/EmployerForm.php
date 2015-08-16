@@ -40,7 +40,7 @@ class EmployerForm extends Form
     }
     $item->first_name = $this->getAttr('first_name', '');
 		$item->last_name = $this->getAttr('last_name', '');
-		$item->last_name = $this->getAttr('tel_number', '');
+		$item->tel_number = $this->getAttr('tel_number', '');
     $item->update_time = date("Y-m-d H:i:s");
     return R::store($item);
   }

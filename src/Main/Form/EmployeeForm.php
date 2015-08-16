@@ -15,6 +15,15 @@ class EmployeeForm extends Form
     'report_expiry'=> ''
   ];
 
+  public function __construct($attr = [])
+  {
+    $now = date('Y-m-d');
+    $this->attr['passport_expiry'] = $now;
+    $this->attr['visa_expiry'] = $now;
+    $this->attr['report_expiry'] = $now;
+    parent::__construct($attr);
+  }
+
   public function validate()
   {
     $this->errors = [];
@@ -70,7 +79,7 @@ class EmployeeForm extends Form
     }
     $item->first_name = $this->getAttr('first_name', '');
 		$item->last_name = $this->getAttr('last_name', '');
-		$item->last_name = $this->getAttr('tel_number', '');
+		$item->tel_number = $this->getAttr('tel_number', '');
     $item->passport_id = $this->getAttr('passport_id');
     $item->passport_expiry = $this->getAttr('passport_expiry');
 		$item->visa_expiry = $this->getAttr('visa_expiry');
