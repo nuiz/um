@@ -23,7 +23,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-3 form-group">
-				<button type="submit" class="btn btn-info">ค้นหา</button>
+				<button type="submit" class="btn btn-success">ค้นหา</button>
 			</div>
 		</div>
 	</form>
@@ -75,7 +75,7 @@
 </div>
 <script>
 $(function(){
-	$('.datepicker').datepicker()
+	$('.datepicker').datepicker();
 });
 </script>
 {/block}

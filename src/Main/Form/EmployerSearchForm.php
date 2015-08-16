@@ -40,6 +40,7 @@ class EmployerSearchForm extends Form
 
   		$this->items = R::find('employer', $query, $bindParam);
       $this->injectsUser($this->items);
+      $this->injectsStatus($this->items);
     }
 
     public function getItems()
@@ -69,6 +70,16 @@ class EmployerSearchForm extends Form
   				$cacheUsers[(string)$item->user_id] = R::findOne('user', 'id=?', [$item->user_id]);
   			}
   			$item->user = $cacheUsers[(string)$item->user_id];
+  		}
+  	}
+
+  	public function injectsStatus(&$items){
+  		$cacheInjects = [];
+  		foreach($items as &$item){
+  			if(!isset($cacheInjects[(string)$item->status])){
+  				$cacheInjects[(string)$item->status] = R::findOne('employer_status', 'id=?', [$item->status]);
+  			}
+  			$item->status_name = $cacheInjects[(string)$item->status]->name;
   		}
   	}
 }

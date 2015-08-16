@@ -14,10 +14,12 @@ class AuthMiddleware extends Middleware {
 	public function onBeforeDispatch(){
 		$uri = $this->app->request()->getPathInfo();
 		$currentRoute = $this->app->router()->getCurrentRoute();
-		if(in_array($currentRoute->getName(), ['login', 'post_login'])) return;
+		if(in_array($currentRoute->getName(), ['login', 'post_login'])) {
+			return;
+		}
 
 		$user = $this->getAuth()->getUserSession();
-		if(!$user){
+		if(!$user) {
 			$this->app->redirect($this->app->urlFor('login'));
 		}
 

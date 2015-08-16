@@ -25,6 +25,8 @@
 				<th>ชื่อ-สกุล</th>
 				<th>โทรศัพท์</th>
 				<th>พนักงาน</th>
+				<th>สถานะ</th>
+				<th></th>
 				<th></th>
 			</tr>
 		</thead>
@@ -35,6 +37,13 @@
 				<td><a href="{siteUrl url="/employer/{$item->id}"}">{$item->first_name} {$item->last_name}</a></td>
 				<td>{$item->tel_number}</td>
 				<td>{$item->user->username}</td>
+				<td><strong>{$item->status_name}</strong></td>
+				<td>{if $item->blacklist eq 1}
+					<span class="label label-danger">แบล็คลิส</span>
+					{else}
+					<a href="">เพิ่มเข้าแบล็คลิส</a>
+					{/if}
+				</td>
 				<td>
 					<a href="{siteUrl url="/employer/edit/{$item->id}"}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
 					<a class="confirm-beforeclick" href="{siteUrl url="/employer/delete/{$item->id}"}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
